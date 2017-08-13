@@ -2,21 +2,36 @@
     <div id="login">
         <vHeader info="Login"></vHeader>
         <section>
-            <mu-text-field label="Github Personal Token" hintText="" type="password" labelFloat class="token-input" underlineFocusClass="line" labelFocusClass="label"/>
-            <mu-raised-button label="Sign In" class="demo-raised-button loginbtn" backgroundColor="black" />
+            <mu-text-field label="Github Personal Token" hintText="" type="password" labelFloat class="token-input" underlineFocusClass="line" labelFocusClass="label" v-model="token" />
+            <div class="btn-wrapper">
+                <mu-raised-button label="login" class="demo-raised-button" backgroundColor="black" @click="Login"/>
+                <mu-raised-button label="generate token" class="demo-raised-button" backgroundColor="black" href="https://github.com/settings/tokens/new" target="_blank" />
+            </div>
         </section>
     </div>
 </template>
 <script>
 import header from '@/components/head'
+
 export default {
     data() {
         return {
-            // dataSource:[]
+            token:''
         }
     },
     components:{
         'vHeader':header
+    },
+    methods:{
+        Login(){
+            if(this.token){
+                this.$store.dispatch('Login',this.token)
+                let redirect = decodeURIComponent(this.$route.query.redirect || '/')
+                this.$router.push({
+                    path:redirect
+                })
+            }
+        }
     }
 }
 
@@ -32,10 +47,13 @@ export default {
 .label{
     color: black;
 }
-.loginbtn{
-    display: block;
-    margin:auto;
+.btn-wrapper{
     position: relative;
-    top:-30px;
+    top:-25px;
+    margin:auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 260px;
 }
 </style>

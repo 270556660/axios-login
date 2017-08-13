@@ -19,7 +19,7 @@ export default {
     },
     methods:{
         goToLogin(){
-            router.push({path:'/login'})
+            router.push({path:'/repository'})
         }
     },
     components:{
