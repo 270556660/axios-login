@@ -1,4 +1,4 @@
-# axios-login
+# Axios实现前端登录拦截、登出
 
 ## 前言
 项目利用了Github提供的personal token即可访问你的Repository List, 重点在于路由拦截中的导航钩子以及使用拦截器处理http请求和响应，具体实现在代码中有注释，通过这个项目学习如何实现一个前端项目中所需要的登录及拦截、登出、token失效的拦截及对应axios拦截器的使用
