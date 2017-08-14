@@ -41,13 +41,13 @@ export default {
     display: block !important;
     margin:auto;
     margin-top:60px;
-    margin-bottom: 30px;
+    margin-bottom: 30px !important;
 }
 .line{
-    background-color: black;
+    background-color: black !important;
 }
 .label{
-    color: black;
+    color: black !important;
 }
 .btn-wrapper{
     margin:auto;
