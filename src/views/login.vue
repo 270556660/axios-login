@@ -38,8 +38,10 @@ export default {
 </script>
 <style lang="css">
 .token-input{
-    display: block;
-    margin:60px auto;
+    display: block !important;
+    margin:auto;
+    margin-top:60px;
+    margin-bottom: 30px;
 }
 .line{
     background-color: black;
@@ -48,8 +50,6 @@ export default {
     color: black;
 }
 .btn-wrapper{
-    position: relative;
-    top:-25px;
     margin:auto;
     display: flex;
     justify-content: space-between;
