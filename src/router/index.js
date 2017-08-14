@@ -55,5 +55,9 @@ router.beforeEach((to, from, next) => {
     }
 })
 
+//页面刷新时，通过判断localStorage中token是否存在从而重新dispatch登录操作，否则刷新页面后，vuex状态消失，会重新返回到登录页面
+if(window.localStorage.getItem('token')){
+    store.dispatch('Login',window.localStorage.getItem('token'))
+}
 
 export default router

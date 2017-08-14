@@ -10,12 +10,20 @@ const state={
 const mutations={
     [types.LOGIN](state,data){
         state.token=data
+        window.localStorage.token=data
+    },
+    [types.LOGOUT](state){
+        state.token=''
+        window.localStorage.removeItem('token')
     }
 }
 
 const actions={
     Login({commit},data){
         commit(types.LOGIN,data)
+    },
+    Logout({commit}){
+        commit(types.LOGOUT)
     }
 }
 

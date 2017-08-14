@@ -19,7 +19,7 @@
                 </mu-card>
             </div>
         </div>
-        <mu-raised-button label="Logout" class="demo-raised-button logout-btn" backgroundColor="black" />
+        <mu-raised-button label="Logout" class="demo-raised-button logout-btn" backgroundColor="black" @click="Logout"/>
     </div>
 </template>
 
@@ -27,6 +27,7 @@
 <script>
 import header from '@/components/head'
 import axios from '../http'
+import router from '@/router/index'
 export default {
 
     name: 'repository',
@@ -49,6 +50,12 @@ export default {
                     this.dataSource=res.data
                     console.log(this.dataSource)
                 })
+        },
+        Logout(){
+            this.$store.dispatch('Logout')
+            router.push({
+                path:'/'
+            })
         }
     },
     components:{
